@@ -1,29 +1,29 @@
-exports.handler = async (event, context) => {
-    const now = new Date();
+exports.handler = async (event) => {
+	
+	console.log("Event:", JSON.stringify(event));
+        const actionGroup = event.actionGroup;
+        const func = event.function;
+        const messageVersion = event.messageVersion || 1;
+        const parameters = event.parameters || [];
+		let responseBody = "";
+	
+		const now = new Date();
 
-    const response = {
-        date: now.toISOString().split("T")[0], // YYYY-MM-DD
-        time: now.toTimeString().split(" ")[0] // HH:MM:SS
-    };
+   
 
-    const responseBody = {
-        "application/json": {
-            body: JSON.stringify(response)
-        }
-    };
+		responseBody = { TEXT: { body: "Today's date is :" +  now.toISOString().split("T")[0] +"," + now.toTimeString().split(" ")[0] } };
+		const actionResponse = {
+            actionGroup: actionGroup,
+            function: func,
+            functionResponse: { responseBody }
+        };
 
-    const actionResponse = {
-        actionGroup: event.actionGroup,
-        apiPath: event.apiPath,
-        httpMethod: event.httpMethod,
-        httpStatusCode: 200,
-        responseBody: responseBody
-    };
+        const response = {
+            response: actionResponse,
+            messageVersion: messageVersion
+        };
 
-    return {
-        messageVersion: "1.0",
-        response: actionResponse,
-        sessionAttributes: event.sessionAttributes,
-        promptSessionAttributes: event.promptSessionAttributes
-    };
+        console.info("Response:", (response));
+        return response;
+
 };
