@@ -1,0 +1,45 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"aoss:CreateCollection",
+				"aoss:DeleteCollection",
+				"aoss:ListCollections",
+				"aoss:BatchGetCollection",
+				"aoss:UpdateCollection",
+				"aoss:CreateAccessPolicy",
+				"aoss:UpdateAccessPolicy",
+				"aoss:GetAccessPolicy",
+				"aoss:ListAccessPolicies",
+				"aoss:CreateSecurityPolicy",
+				"aoss:ListSecurityPolicies",
+				"aoss:GetSecurityPolicy",
+				"aoss:UpdateSecurityPolicy",
+				"aws-marketplace:*",
+				"iam:ListUsers",
+				"iam:GetUser",
+				"iam:ListRoles",
+				"iam:GetRole",
+				"iam:ListPolicies",
+				"iam:GetPolicy",
+				"iam:ListGroups",
+				"iam:GetGroup",
+				"iam:CreateRole",
+				"iam:Create*",
+				"iam:*Policy*",
+				"iam:CreateUser",
+				"iam:CreateGroup",
+				"iam:CreatePolicy",
+				"iam:CreatePolicyVersion",
+				"iam:CreateServiceLinkedRole",
+				"iam:AttachRolePolicy",
+				"iam:AttachUserPolicy",
+				"iam:AttachGroupPolicy",
+				"es:ListDomainNames"
+			],
+			"Resource": "*"
+		}
+	]
+}
